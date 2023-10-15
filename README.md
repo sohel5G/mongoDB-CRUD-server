@@ -66,6 +66,33 @@ DELETE (Client Side)
 
 
 
+----------------------------------
+UPDATE (Server Side)
+----------------------------------
+1. create app.put('/user/:id', (req, res) => {})
+2. Specify a unique ObjectId to delete the right user (const id = req.params.id;)
+3. const query = {_id:new ObjectId(id)}
+4. Get all the edited data that send from the client side (const user = req.body;) 
+5. make a options (const options = { upsert: true };)
+6. const updateUser = {
+                $set: {
+                    name: user.name,
+                }
+            };
+
+7. const result = await database.updateOne(query, updateUser, options);
+8. res.send(result);
+
+
+
+----------------------------------
+UPDATE (Client Side)
+----------------------------------
+1 When you fetch just pass an ID in the URL (fetch(`http://localhost:3000/users/${loadedUser._id})
+2. all is the same as [ CREATE (Client Side) method ]
+
+
+
 
 
 
