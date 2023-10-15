@@ -50,7 +50,7 @@ READ MANY (Client Side)
 DELETE (Server Side)
 ----------------------------------
 1. create app.delete('/user/:id', (req, res) => {})
-2. Specify unique ObjectId to delete the right user
+2. Specify unique ObjectId to delete the right user (const id = req.params.id;)
 3. const query = {_id:new ObjectId(id)}
 4. const result = await userCollection.deleteOne(query);
 
